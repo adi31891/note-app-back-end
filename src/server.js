@@ -14,7 +14,7 @@ const server = Hapi.server({
 const init = async () => {
   const server = Hapi.server({
     port: 5000,
-    host: 'localhost',
+    host: process.send.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
     routes: {
       cors: {
         origin: ['*'],
